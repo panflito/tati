@@ -11,8 +11,8 @@ body {
     margin: 0;
     padding: 0;
     background-color: rgb(255, 255, 255);
-    height: 100vh;
-    overflow: hidden;
+    height: auto; /* Cambiado de 100vh a auto */
+    overflow: auto; /* Cambiado de hidden a auto */
     display: flex;
     flex-direction: column;
 }
@@ -288,4 +288,208 @@ background-color: black;
 
 .parrafo p {
     margin-bottom: 30px; /* Espaciado entre los párrafos */
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Abel', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para la información de la galería */
+.gallery-info {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Estilos para la cuadrícula flex */
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.image-item {
+    flex: 1 1 calc(25% - 10px); /* Ajustar el tamaño de las imágenes */
+    max-width: calc(25% - 10px);
+    box-sizing: border-box;
+}
+
+.image-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Indicador de carga */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 100%;
+}
+
+.loading::after {
+    content: "Cargando imágenes...";
+    font-size: 18px;
+    font-style: italic;
+    color: #666;
+}
+
+/* Estilos para el carrusel */
+.carousel-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.carousel-container {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-slide {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-item {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: none;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 24px;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Estilos para los enlaces de galería activos */
+[data-gallery].active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Estilos para la galería */
+.gallery {
+    column-count: 3; /* Número de columnas */
+    column-gap: 10px; /* Espacio entre columnas */
+    padding: 10px;
+}
+
+.gallery img, .gallery video {
+    width: 100%; /* Asegura que los elementos ocupen el ancho de su columna */
+    margin-bottom: 10px; /* Espacio entre los elementos */
+    object-fit: cover; /* Ajusta el contenido sin bordes blancos */
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: block; /* Asegura que los elementos respeten el flujo de la columna */
+}
+
+.gallery video {
+    background-color: black; /* Fondo para los videos */
+}
+
+/* Estilos para las galerías ilustrativo y neo-tribal */
+.gallery-ilustrativo, .gallery-neo-tribal {
+    column-count: 3; /* Número de columnas */
+    column-gap: 10px; /* Espacio entre columnas */
+    padding: 10px;
+}
+
+.gallery-ilustrativo img, .gallery-neo-tribal img,
+.gallery-ilustrativo video, .gallery-neo-tribal video {
+    width: 100%; /* Asegura que los elementos ocupen el ancho de su columna */
+    margin-bottom: 10px; /* Espacio entre los elementos */
+    object-fit: cover; /* Ajusta el contenido sin bordes blancos */
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: block; /* Asegura que los elementos respeten el flujo de la columna */
+}
+
+.gallery-neo-tribal video {
+    background-color: black; /* Fondo para los videos */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .gallery {
+        column-count: 2; /* Reduce el número de columnas en pantallas más pequeñas */
+    }
+
+    .gallery-ilustrativo, .gallery-neo-tribal {
+        column-count: 2; /* Reduce el número de columnas en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery {
+        column-count: 1; /* Una sola columna en pantallas muy pequeñas */
+    }
+
+    .gallery-ilustrativo, .gallery-neo-tribal {
+        column-count: 1; /* Una sola columna en pantallas muy pequeñas */
+    }
 }
