@@ -1,0 +1,291 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Abel", sans-serif;
+}
+
+body {
+    font-family: "Abel", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    display: block;
+    text-align: center;
+}
+
+/* Estilo para el encabezado */
+header {
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+    z-index: 1000;
+}
+
+h2 {
+    padding-left: 20px;
+    letter-spacing: 10px;
+    font-weight: 300;
+    font-size: 30px;
+}
+
+nav {
+    padding-right: 20px;
+    display: flex;
+    gap: 20px;
+    z-index: 10;
+}
+
+nav > div {
+    position: relative;
+}
+
+nav ul {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    list-style: none;
+    padding: 10px 20px;
+    margin: 0;
+    display: none;
+    background-color: black;
+    min-width: 30px;
+    text-align: center;
+    border-radius: 5px;
+    align-items: center;
+}
+
+nav > div:hover ul, nav > div:focus-within ul {
+    display: block; /* El menú es visible cuando se pasa el mouse o se da foco */
+}
+
+nav ul li {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li a {
+    color: white;
+    display: block;
+    width: 100%;
+}
+
+.navegacion:hover {
+    border-bottom: 0px solid black;
+    padding-bottom: 2px;
+}
+
+nav ul li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Contenedor principal */
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    overflow: hidden;
+    margin-top: 60px;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.carousel-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.carousel-container img {
+    max-width: 100%;
+    max-height: 90%;
+    object-fit: contain;
+    transition: 0.3s ease;
+    display: none;
+}
+
+.carousel-container img.active {
+    display: block;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 24px;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    nav ul {
+        top: 110%; /* Ajusta la posición del menú desplegable */
+        min-width: 100%; /* Asegura que el menú ocupe todo el ancho */
+        display: none; /* Asegúrate de que esté oculto por defecto */
+        z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
+    }
+
+    nav > div:hover ul, nav > div:focus-within ul {
+        display: block; /* Muestra el menú al pasar el ratón o al dar foco */
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column; /* Cambia el nav a columna en pantallas pequeñas */
+        align-items: center; /* Alinea los elementos en el centro */
+    }
+
+    nav ul {
+        top: 120%; /* Ajusta la posición para pantallas muy pequeñas */
+        display: block; /* Asegura que el menú esté siempre visible */
+    }
+}
+
+.rectangle {
+    color: rgb(148, 148, 148);
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    display: inline-block;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    padding-left: 50px;
+}
+
+.opaco {
+    color: rgb(0, 0, 0);
+}
+
+#otras .carousel {
+    width: 80%;
+    max-width: 700px;
+    height: auto;
+    margin: 0 auto;
+}
+
+#otras .carousel-container img {
+    max-width: 100%;
+    max-height: 80%;
+}
+
+#todos {
+    width: 100%;
+    margin: 0 auto;
+    text-align: justify;
+    height: auto;
+}
+
+#tatuaje, #arte, #about {
+    display: inline-block;
+    border-bottom: 1px solid black;
+    padding-bottom: 3px;
+
+}
+.header-invert{
+background-color: black;  
+}
+#h1invert{
+    color: aliceblue;
+}
+#main-invert{
+    background-color: black;
+}
+.listas-invert{
+    color: aliceblue;
+}
+#span-invert{
+    color: aliceblue;
+}
+.tatuajeinvertido{
+    color: aliceblue !important;
+}
+.luna{
+    width: 20px;
+}
+#luna1{
+    color: aliceblue;
+    background-color: aliceblue;
+    border-radius: 50px;
+}
+.parrafo {
+    color: white;
+    width: 60%; /* Ajusta el ancho para que no sea tan estrecho */
+    max-width: 700px; /* Evita que se extienda demasiado en pantallas grandes */
+    text-transform: none; /* Evita que todo el texto esté en mayúsculas */
+    font-size: 18px; /* Tamaño de fuente más legible */
+    line-height: 1.6; /* Mejora la lectura */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Centra el texto */
+    margin: 100px auto; /* Centra vertical y horizontalmente */
+    text-transform: uppercase;
+}
+
+.parrafo p {
+    margin-bottom: 30px; /* Espaciado entre los párrafos */
+}
